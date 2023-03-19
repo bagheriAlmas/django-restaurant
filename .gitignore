@@ -1,0 +1,27 @@
+# Django-related files
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media/
+
+# Environment-related files
+.env
+.env.local
+.env.*.local
+.env.*.prod
+envs/
+
+# Dependency-related files
+pip-lock.txt
+pipenv-lock.json
+poetry.lock
+pyproject.toml
+*/migrations/*
+
+# Editor/IDE-related files
+.vscode/
+.idea/
+*.swp
