@@ -6,5 +6,5 @@ class Food(models.Model):
     rate = models.SmallIntegerField(default=0)
     price = models.PositiveIntegerField()
     time_prepare = models.IntegerField()
-    pub_date = models.DateTimeField(auto_now=True,auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
     photo = models.ImageField(upload_to='foods/')
