@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block food_list %}
+    <div class="row special-list">
+        {% for food in foods %}
+{#            {% if food.category == 'drinks' %}#}
+{#                <div class="col-lg-4 col-md-6 special-grid drinks">#}
+{#            {% elif food.category == 'main' %}#}
+{#                <div class="col-lg-4 col-md-6 special-grid lunch">#}
+{#            {% elif food.category == 'breakfast' %}#}
+{#                <div class="col-lg-4 col-md-6 special-grid drinks">#}
+{#            {% endif %}#}
+
+            <div class="col-lg-4 col-md-6 special-grid dinner">
+                <div class="gallery-single fix">
+                    <img src="{{ food.photo.url }}" class="img-fluid" alt="Image">
+                    <div class="why-text">
+                        <h4>{{ food.name }}</h4>
+                        <p>{{ food.description }}</p>
+                        <h5> {{ food.price }} $ </h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+{% endblock %}
