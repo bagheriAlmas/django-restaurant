@@ -11,4 +11,4 @@ def reserve_view(request):
             form.save()
     else:
         form = ReservationForm()
-    return render(request, 'foods/reservation.html', {'form':form})
+    return render(request, 'reservations/reservation.html', {'form':form})
