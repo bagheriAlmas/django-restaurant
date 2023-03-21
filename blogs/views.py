@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from blogs.models import Blog
+
+
+def blog_list_view(request):
+    blogs = Blog.objects.all()
+    return render(request, 'blogs/blog_list.html', {'blogs': blogs})
