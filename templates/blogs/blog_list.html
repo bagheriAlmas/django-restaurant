@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+<ul>
+    {% for blog in blogs %}
+        <li>{{ blog.title }}</li>
+    {% endfor %}
+</ul>
