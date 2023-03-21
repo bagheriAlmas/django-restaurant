@@ -1,25 +1,19 @@
-{% extends 'base.html' %}
+{% extends 'patrials/main.html' %}
 {% block food_list %}
     <div class="row special-list">
         {% for food in foods %}
-{#            {% if food.category == 'drinks' %}#}
-{#                <div class="col-lg-4 col-md-6 special-grid drinks">#}
-{#            {% elif food.category == 'main' %}#}
-{#                <div class="col-lg-4 col-md-6 special-grid lunch">#}
-{#            {% elif food.category == 'breakfast' %}#}
-{#                <div class="col-lg-4 col-md-6 special-grid drinks">#}
-{#            {% endif %}#}
-
+           <a href="{% url 'food_detail' food.id %}">
             <div class="col-lg-4 col-md-6 special-grid {{ food.category }}">
                 <div class="gallery-single fix">
                     <img src="{{ food.photo.url }}" class="img-fluid" alt="Image">
                     <div class="why-text">
-                        <h4>{{ food.name }}</h4>
-                        <p>{{ food.description }}</p>
+                        <h5 >{{ food.name }}</h5>
+                        <p class="h6 text-light">{{ food.description|truncatechars:100 }}</p>
                         <h5> {{ food.price }} $ </h5>
                     </div>
                 </div>
             </div>
+           </a>
         {% endfor %}
         </div>
 {% endblock %}
