@@ -16,6 +16,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
     content = models.TextField()
+    image = models.ImageField(upload_to='images/blog', default='blog_default.png')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField('Tag')
     categories = models.ManyToManyField('Category')
