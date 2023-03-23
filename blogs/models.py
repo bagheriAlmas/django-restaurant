@@ -6,10 +6,16 @@ class Tag(models.Model):
     name = models.CharField(max_length=30)
     is_enabled = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
     is_enabled = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Blog(models.Model):
@@ -21,3 +27,6 @@ class Blog(models.Model):
     tags = models.ManyToManyField('Tag')
     categories = models.ManyToManyField('Category')
     created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
