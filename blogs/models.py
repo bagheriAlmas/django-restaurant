@@ -24,7 +24,7 @@ class Blog(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to='blogs/', default='blog_default.png')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    tags = models.ManyToManyField('Tag')
+    tags = models.ManyToManyField('Tag',related_name='Tags')
     categories = models.ManyToManyField('Category')
     created = models.DateTimeField(auto_now_add=True)
 
