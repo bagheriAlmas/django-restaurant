@@ -9,6 +9,9 @@ urlpatterns = [
     path('', include('foods.urls')),
     path('', include('reservations.urls')),
     path('', include('blogs.urls')),
+
+    path("ckeditor5/", include('django_ckeditor_5.urls'), name="ck_editor_5_upload_file"),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

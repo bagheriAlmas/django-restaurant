@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class Tag(models.Model):
@@ -21,7 +22,7 @@ class Category(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
-    content = models.TextField()
+    content = CKEditor5Field('Text', config_name='extends')
     image = models.ImageField(upload_to='blogs/', default='blog_default.png')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField('Tag',related_name='Tags')
