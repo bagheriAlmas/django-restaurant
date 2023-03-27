@@ -1,8 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
-
-from blogs.models import Blog
-from comments.models import Comment
+from .models import Blog, Comment
 
 
 def blog_list_view(request):

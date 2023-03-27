@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'foods.apps.FoodsConfig',
     'reservations.apps.ReservationsConfig',
     'blogs.apps.BlogsConfig',
-    'comments.apps.CommentsConfig',
 
     'django_ckeditor_5',
 
