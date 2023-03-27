@@ -3,9 +3,14 @@ import uuid
 from django.db import models
 
 
-def image_upload_to(instance, filename):
+def food_image_upload_to(instance, filename):
     ext = filename.split('.')[-1]
-    return 'food/{}-{}.{}'.format(instance.name, uuid.uuid4().hex, ext)
+    return 'foods/{}-{}.{}'.format(instance.name, uuid.uuid4().hex, ext)
+
+
+def gallery_image_upload_to(instance, filename):
+    ext = filename.split('.')[-1]
+    return 'foods/gallery/{}-{}.{}'.format(instance.title, uuid.uuid4().hex, ext)
 
 
 class Food(models.Model):
@@ -30,7 +35,7 @@ class Food(models.Model):
     price = models.PositiveSmallIntegerField()
     time_prepare = models.PositiveSmallIntegerField()
     pub_date = models.DateTimeField(auto_now_add=True)
-    photo = models.ImageField(upload_to=image_upload_to)
+    photo = models.ImageField(upload_to=food_image_upload_to)
 
     def __str__(self):
         return self.name
@@ -38,7 +43,7 @@ class Food(models.Model):
 
 class Gallery(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='foods/gallery')
+    image = models.ImageField(upload_to=gallery_image_upload_to)
     is_enabled = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
 
