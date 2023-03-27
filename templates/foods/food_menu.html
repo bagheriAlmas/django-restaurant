@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <!-- Start All Pages -->
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Special Menu</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Pages -->
+
+    <!-- Start Menu -->
+    <div class="menu-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading-title text-center">
+                        <h2>Special Menu</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">All</button>
+                            <button data-filter=".drinks">Drinks</button>
+                            <button data-filter=".breakfast">Breakfast</button>
+                            <button data-filter=".main">Main</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row special-list">
+                {% for food in foods %}
+                    <div class="col-lg-4 col-md-6 special-grid {{ food.category }}">
+
+                        <div class="gallery-single fix">
+                            <img src="{{ food.photo.url }}" class="img-fluid" alt="{{ food.name }}">
+                            <div class="why-text">
+                                <h4>{{ food.name }}</h4>
+                                <p>{{ food.description }}</p>
+                                <h5> {{ food.price }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- End Menu -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+{% endblock %}
