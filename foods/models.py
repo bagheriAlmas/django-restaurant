@@ -10,7 +10,10 @@ def food_image_upload_to(instance, filename):
 
 def gallery_image_upload_to(instance, filename):
     ext = filename.split('.')[-1]
-    return 'foods/gallery/{}-{}.{}'.format(instance.title, uuid.uuid4().hex, ext)
+    if instance.type == 'Banner':
+        return 'foods/gallery/{}-{}.{}'.format(instance.title, uuid.uuid4().hex, ext)
+    else:
+        return 'foods/banner/{}-{}.{}'.format(instance.title, uuid.uuid4().hex, ext)
 
 
 class Food(models.Model):
@@ -42,9 +45,14 @@ class Food(models.Model):
 
 
 class Gallery(models.Model):
+    IMAGE_TYPE = [
+        ('banner', 'Banner'),
+        ('gallery', 'Gallery'),
+    ]
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to=gallery_image_upload_to)
     is_enabled = models.BooleanField(default=True)
+    type = models.CharField(max_length=10, choices=IMAGE_TYPE, default='Gallery')
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from foods.models import Food,Gallery
+from foods.models import Food, Gallery
 
 
 class FoodAdmin(admin.ModelAdmin):
@@ -9,8 +9,9 @@ class FoodAdmin(admin.ModelAdmin):
 
 class GalleryAdmin(admin.ModelAdmin):
     model = Gallery
-    list_display = ('title', 'is_enabled')
+    list_display = ('title', 'is_enabled', 'type')
+    list_filter = ('type',)
 
 
-admin.site.register(Food,FoodAdmin)
-admin.site.register(Gallery,GalleryAdmin)
+admin.site.register(Food, FoodAdmin)
+admin.site.register(Gallery, GalleryAdmin)
