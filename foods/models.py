@@ -26,7 +26,7 @@ class Food(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
     category = models.CharField(max_length=15, choices=FOOD_CATEGORY, default='main')
-    rate = models.PositiveSmallIntegerField(choices=RATE_CHOICES,default=0,)
+    rate = models.PositiveSmallIntegerField(choices=RATE_CHOICES, default=0, )
     price = models.PositiveSmallIntegerField()
     time_prepare = models.PositiveSmallIntegerField()
     pub_date = models.DateTimeField(auto_now_add=True)
@@ -34,3 +34,13 @@ class Food(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='foods/gallery')
+    is_enabled = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
