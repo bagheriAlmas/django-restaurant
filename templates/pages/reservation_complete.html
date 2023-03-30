@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block body %}
+    <style>
+
+        .containers {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #d0a772;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+    </style>
+    <!-- Start All Pages -->
+    <div class="all-page-title page-breadcrumb">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Reservation</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Pages -->
+
+    <div class="containers">
+        <h1>Thank You for Choosing Almas Restaurant!</h1>
+        <p>Dear <b>{{ form.name }}</b>,<br>
+            <sub>{{ form.email }}</sub>
+        </p>
+        <p>I wanted to personally thank you for choosing Almas Restaurant for your upcoming dining experience. We are
+            thrilled to have the opportunity to serve you and are committed to making your visit a memorable one.</p>
+        <p>Our team has received your reservation for <b>{{ form.date }}</b> at <b>{{ form.time }}</b>, and we are
+            eagerly preparing for your arrival. We take pride in providing exceptional service and quality cuisine, and
+            we can't wait to share our passion with you.</p>
+        <p>At Almas Restaurant, we value each and every one of our customers, and we strive to create a warm and
+            welcoming environment that feels like home. From the moment you walk through our doors, we want you to feel
+            like part of our family.</p>
+        <p>If you have any special requests or dietary needs, please don't hesitate to let us know. Our chefs are
+            skilled at accommodating a wide range of preferences, and we want to ensure that your experience is
+            everything you hoped it would be.</p>
+        <p>Thank you again for choosing Almas Restaurant. We look forward to serving you soon!</p>
+
+        <div class="w-100 text-center">
+        <a class="btn btn-lg btn-circle btn-outline-new-white text-black-50" href="{% url 'menu' %}">View Our Menu</a>
+        </div>
+
+
+    </div>
+{% endblock %}
