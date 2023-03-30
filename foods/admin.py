@@ -4,7 +4,8 @@ from foods.models import Food, Gallery
 
 class FoodAdmin(admin.ModelAdmin):
     model = Food
-    list_display = ('name', 'category')
+    list_display = ('name', 'category', 'special')
+    ordering = ('special',)
 
 
 class GalleryAdmin(admin.ModelAdmin):
