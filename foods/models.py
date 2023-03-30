@@ -53,6 +53,7 @@ class Gallery(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to=gallery_image_upload_to)
     is_enabled = models.BooleanField(default=True)
+    special = models.BooleanField(default=False)
     type = models.CharField(max_length=10, choices=IMAGE_TYPE, default='Gallery')
     created = models.DateTimeField(auto_now_add=True)
 
