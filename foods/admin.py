@@ -10,8 +10,10 @@ class FoodAdmin(admin.ModelAdmin):
 
 class GalleryAdmin(admin.ModelAdmin):
     model = Gallery
-    list_display = ('title', 'is_enabled', 'type')
+    list_display = ('title', 'is_enabled', 'type','special')
     list_filter = ('type',)
+    ordering = ('-special',)
+
 
 
 admin.site.register(Food, FoodAdmin)
